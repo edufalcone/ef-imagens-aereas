@@ -256,4 +256,7 @@ img{
 .hero{
     max-height:350px;
 }
+.container h3{
+font-size: 1.3em;
+}
 }
