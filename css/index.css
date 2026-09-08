@@ -54,7 +54,7 @@
 ================================================== */
 
 .por-que-escolher{
-    background-color:#f0f3f5;
+    background-color:#00000017;
     gap:70px;
     font-family: "Manrope", sans-serif;
 }
@@ -123,52 +123,6 @@
       
 
 
-/* ==================================================
-   RESPONSIVO
-================================================== */
-
-@media(max-width:900px){
-
-    .nav-bar{
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-
-       .sobre .container {
-        flex-direction: column;
-        font-weight: 700;
-    }
-
-    }
-
-    .menu-item{
-
-        min-width:140px;
-
-        min-height:48px;
-
-        font-size:13px;
-
-    }
-
-}
-
-
-@media(max-width:600px){
-
-    .menu-item{
-
-        min-width:80px;
-
-        min-height:45px;
-
-        font-size:11px;
-        font-weight: 500;
-
-    }
-
-}
 
 /* ==================================================
    FORMULÁRIO

@@ -31,21 +31,23 @@
 /* ==================================================
    CONTAINER-BAIXO
 ================================================== */
-s
+
 .container-baixo{
 
 
     max-width: 1000px;
     display:flex;
     align-items:center;
-    gap:60px;
-
 }
 
 
 /* ==================================================
    PRINCIPAL & ESTRUTURA
 ================================================== */
+
+.container {
+    gap: 10px;
+}
 
 .principal {
     margin-top: -20px;
@@ -62,7 +64,6 @@ s
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 40px;
     width: min(90%, var(--largura-container));
     margin: 0 auto;
 }
@@ -77,7 +78,7 @@ s
     width: 100%;
     max-width: 100%;
     color: #4f9ca3;
-    font-size: 2rem;
+    font-size: 1.7em;
     line-height: 1.3;
     font-weight: 800;
 }
@@ -87,28 +88,27 @@ s
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 60px;
+    gap: 10px;
     width: 100%;
 }
 
 .texto {
     flex: 1;
-    text-align:justify;
-    font-size: 1.0em;
+    text-align: justify;
+    font-size: 0.95em;
     line-height: 1.5;
 
 }
-
-.texto a {
-    color: black;
+.link-orcamento {
+    display: inline-block;
+    color: rgb(12, 73, 153);
     text-decoration: none;
     font-weight: 900;
-    font-size: 1.2em;
+    transition: transform 0.3s ease;
 }
 
-.texto a:hover {
-    font-weight: bold;
-    text-decoration: underline;
+.link-orcamento:hover {
+    transform: translateX(12px) scale(1.05);
 }
 
 .drone-cidade {
@@ -126,44 +126,6 @@ s
     border-radius: 8px;
 }
 
-/* RESPONSIVO (Telas Menores) */
-@media (max-width: 868px) {
-    .container-baixo {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .drone-cidade img {
-        max-width: 100%;
-    }
-}
-
-.texto a{
-    color: inherit;          /* Mantém a mesma cor do texto */
-    text-decoration: none;   /* Remove o sublinhado */
-    font-weight: inherit;    /* Mantém o peso da fonte */
-}
-
-.texto a:hover{
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-@media (max-width: 868px) {
-
-    .container-baixo {
-        display: block;
-    }
-
-    .drone-cidade {
-        display: none;
-    }
-
-    .texto {
-        width: 100%;
-    }
-
-}
 
 /* ==================================================
    HERO
@@ -226,48 +188,182 @@ s
 
 }
 
+
 /* ==================================================
-   CONTAINER-PORTFOLIO
+   PORTFÓLIO
 ================================================== */
-.portfolio{
-    background-color: #f0f3f5;
-    height: 1000px;
+
+.portfolio {
+    background-color: #00000017;
+    padding: 50px 0 70px;
 }
 
-.container-portfolio{
 
-    padding-top: 50px;
-    color:#4d4d4d;
-    width: 100%;
-}
+/* Container que centraliza os três elementos */
 
-.conteudo-portfolio{
+.container-portfolio {
+    width: min(90%, var(--largura-container));
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 40px;
-    width: min(90%, var(--largura-container));
-    margin: 0 auto;
 }
 
-.video-youtube h1{
+
+/* TÍTULO */
+
+.container-portfolio h2 {
     color: #478f96;
     font-size: 2rem;
     line-height: 1.3;
     font-weight: 800;
-    padding-bottom: 10px;
+    margin: 0 0 10px 0;
 }
 
-.video-youtube h2{
+
+/* SUBTÍTULO */
+
+.container-portfolio > p {
+    color: #478f96;
     font-size: 1.2rem;
-    font-weight: 500;
-    padding-bottom: 5px;
+    margin: 0 0 30px 0;
 }
 
-.video-youtube p{
-    font-size: 1.1em;
+
+
+
+
+/* VÍDEO */
+
+.video-youtube {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
-.video-youtube iframe{
-margin: 30px 0 8px 0;
+
+/* IFRAME */
+
+.video-youtube iframe {
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+
+    border: none;
+    border-radius: 12px;
+
+    display: block;
+}
+/* ==================================================
+   VÍDEO - PORTFÓLIO
+================================================== */
+
+.video-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Botão de Play */
+
+.video-thumb {
+    width: 100%;
+    max-width: 800px;
+}
+
+.video-thumb a {
+    position: relative;
+    display: block;
+}
+
+.video-thumb img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+.legenda-video {
+    text-align: left;
+    margin-top: 8px;
+    margin-left: 0;
+    font-size: 1rem;
+    color: #478f96;
+}
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255,255,255,.9);
+    color: #4f9ca3;
+
+    border-radius: 50%;
+
+    font-size: 32px;
+    padding-left: 5px;
+
+    transition: .3s;
+}
+
+/* Efeito ao passar o mouse */
+
+.video-thumb:hover img {
+    transform: translateX(12px) scale(1.05);
+}
+
+.video-thumb:hover .play-button {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: #4f9ca3;
+    color: white;
+}
+
+    .nota-thumb p {
+        font-size: 1.1em;
+        padding-top: 10px
+}
+
+
+/* RESPONSIVO (Telas Menores) */
+@media (max-width: 868px) {
+    .container-baixo {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .drone-cidade img {
+        max-width: 100%;
+    }
+
+    .container-topo h2 {
+     font-size: 1.4em;
+}
+    .nota-thumb p {
+        font-size: 0.9em;
+        padding-top: 7px;
+        }
+}
+
+
+@media (max-width: 868px) {
+
+    .container-baixo {
+        display: block;
+    }
+
+    .drone-cidade {
+        display: none;
+    }
+
+    .texto {
+        width: 100%;
+        font-size: 0.9em;
+    }
+
 }
