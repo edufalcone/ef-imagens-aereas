@@ -155,7 +155,9 @@
         <p>Preencha os dados abaixo e entraremos em contato o quanto antes para atendê-lo.</p>
         </div>
 
-        <form action="https://formspree.io/f/mvkolwdq" method="POST">
+        <form id="formulario-orcamento"
+      action="https://formspree.io/f/mvkolwdq"
+      method="POST">
         
         <!-- Linha Dupla: Nome e Empresa -->
         <div class="form-row">
@@ -216,6 +218,45 @@
     </div>
 </div>
 
+<script>
+const formulario = document.getElementById("formulario-orcamento");
+
+formulario.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const dados = new FormData(formulario);
+
+    try {
+
+        const resposta = await fetch(formulario.action, {
+            method: "POST",
+            body: dados,
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+
+        if (resposta.ok) {
+
+            alert("Solicitação enviada com sucesso!\n\nObrigado pelo contato. Em breve entraremos em contato.");
+
+            formulario.reset();
+
+        } else {
+
+            alert("Não foi possível enviar sua solicitação. Por favor, tente novamente.");
+
+        }
+
+    } catch (erro) {
+
+        alert("Ocorreu um erro ao enviar o formulário. Verifique sua conexão e tente novamente.");
+
+    }
+
+});
+</script>
 
 </body>
 
